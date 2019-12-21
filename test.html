@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- 합쳐지고 최소화된 최신 CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+    <!-- 부가적인 테마 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+    <SCRIPT language="javascript">
+
+        function check(f) {
+            blank = false;
+            for (i = 0; i < f.elements.length; i++) {
+                if (f.elements[i].value == "")
+                    if (f.elements[i].name != "large")
+                        blank = true;
+            }
+            if (blank == true)
+                alert("모든 항목을 입력하셔야 합니다.");
+            else
+                f.submit();
+        }
+    </SCRIPT>
+</head>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyADRVBDB8HxpapJkavkDzrnt0UIEOQjUP0",
+        authDomain: "webapptest-f7044.firebaseapp.com",
+        databaseURL: "https://webapptest-f7044.firebaseio.com",
+        projectId: "webapptest-f7044",
+        storageBucket: "webapptest-f7044.appspot.com",
+        messagingSenderId: "805700510464",
+        appId: "1:805700510464:web:d66c28496c5fa864c609e5"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+</script>
+<body>
+<a href="main.html"> [메인으로] </a>
+<div class="container">
+    <form method=post action="product_save.jsp" enctype="multipart/form-data">
+        <div class="form-group">
+            <span> 상품 올리기 </span>
+        </div>
+
+        <div class="form-group">
+            <label for="wname" class="col-sm-2 control-label">작성자</label>
+            <div class="col-sm-10">
+                <input type="text" name="wname" class="form-control" id="wname" placeholder="작성자">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="category" class="col-sm-2 control-label">상품분류</label>
+            <div class="col-sm-10">
+                <select name="category" class="form-control" id="category">
+                    <option value=11>가구
+                    <option value=22>전기/전자
+                    <option value=33>부엌용품
+                    <option value=44>의류
+                    <option value=55>보석 및 악세서리
+                    <option value=66>헬스기구
+                    <option value=77>컴퓨터 관련
+                    <option value=88>기타
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="pname" class="col-sm-2 control-label">상품명</label>
+            <div class="col-sm-10">
+                <input type="text" name="pname" class="form-control" id="pname" placeholder="상품명">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="sname" class="col-sm-2 control-label">제조원</label>
+            <div class="col-sm-10">
+                <input type="text" name="sname" class="form-control" id="sname" placeholder="제조원">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="price" class="col-sm-2 control-label">시중가</label>
+            <div class="col-sm-10">
+                <input type="text" name="price" class="form-control" id="price" placeholder="시중가">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="dprice" class="col-sm-2 control-label">판매가</label>
+            <div class="col-sm-10">
+                <input type="text" name="dprice" class="form-control" id="dprice" placeholder="판매가">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="stock" class="col-sm-2 control-label">입고 수량</label>
+            <div class="col-sm-10">
+                <input type="text" name="stock" class="form-control" id="stock" placeholder="입고 수량">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="small" class="col-sm-2 control-label">작은 이미지</label>
+            <div class="col-sm-10">
+                <input type="file" name="small" class="form-control" id="small" placeholder="작은 이미지">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="large" class="col-sm-2 control-label">큰 이미지</label>
+            <div class="col-sm-10">
+                <input type="file" name="large" class="form-control" id="large" placeholder="큰 이미지">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="description" class="col-sm-2 control-label">상품 내용</label>
+            <div class="col-sm-10" >
+                <textarea name="description" class="form-control col-sm-10" id="description" placeholder="상품 내용" rows="3"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <div>
+                <button type="button" class="btn btn-primary">저장</button>
+                <button type="button" class="btn btn-secondary">다시쓰기</button>
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>
